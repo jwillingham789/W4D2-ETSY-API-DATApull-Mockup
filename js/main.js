@@ -2,9 +2,6 @@ fetch('http://thinksaydo.com/tiyproxy.php?url=' + encodeURIComponent('https://op
   .then(function(response){
     return response.json()
   })
-  // .then(function(json){
-  //   console.log('parsed json', json)
-  // })
   .then(function(json){
     json.results.forEach(function(result){
       //creating the image tag
@@ -23,14 +20,14 @@ fetch('http://thinksaydo.com/tiyproxy.php?url=' + encodeURIComponent('https://op
       var p2 = document.createElement('p')
       p2.innerHTML = '$' + result.price
 
-      //image
+      //creating the Div for each tile
       var div = document.createElement('div')
       div.classList.add('tile_format')
 
       //image
       div.appendChild(img)
       img.classList.add('tile_image')
-      //span AD tag
+      //span 'AD' tag
       div.appendChild(span)
       span.classList.add('tile_AD')
       //title
@@ -42,7 +39,7 @@ fetch('http://thinksaydo.com/tiyproxy.php?url=' + encodeURIComponent('https://op
       //price
       div.appendChild(p2)
       p2.classList.add('tile_price')
-
+      //appends the new Div with all child elements to the document
       document.querySelector('.tiles').appendChild(div)
     })
   })
